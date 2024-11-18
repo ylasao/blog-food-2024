@@ -45,6 +45,7 @@ coverage/
 .eslintcache
 
 # Local environment configuration
+.env
 .env.local
 .env.development.local
 .env.test.local
