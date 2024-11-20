@@ -15,13 +15,14 @@ const { VideoPost } = require("./VideoPost");
 const { Role } = require("./Role");
 const { PostCategory } = require("./PostCategory");
 const { PostTags } = require("./PostTags");
+const { RefreshToken } = require("./RefreshToken");
 const defineAssociations = () => {
   // 1 Author - Post : One-to-Many (An author can write many posts)
   Author.hasMany(Post, { foreignKey: "authorId" });
   Post.belongsTo(Author, { foreignKey: "authorId" });
 
   // 2 Post - PostCategory : One-to-many (A post can have many categories)
-  Post.hasMany(Post, { foreignKey: "postId" });
+  Post.hasMany(PostCategory, { foreignKey: "postId" });
   PostCategory.belongsTo(Post, { foreignKey: "postId" });
 
   // 3 PostCategory - Category : One-to-many (A category can have many post)
@@ -56,7 +57,7 @@ const defineAssociations = () => {
   Post.hasMany(Rating, { foreignKey: "postId" });
   Rating.belongsTo(Post, { foreignKey: "postId" });
 
-  // 11 User - Rating : One-to-Many (A user cav have multiple post )
+  // 11 User - Rating : One-to-Many (A user can have rating multiple post )
   User.hasMany(Rating, { foreignKey: "userId" });
   Rating.belongsTo(User, { foreignKey: "userId" });
 
@@ -99,5 +100,9 @@ const defineAssociations = () => {
   // Post - VideoPost : One-to-many
   Post.hasMany(VideoPost, { foreignKey: "postId" });
   VideoPost.belongsTo(Post, { foreignKey: "postId" });
+
+  // User - RefreshToken :One-to-one
+  User.hasOne(RefreshToken, { foreignKey: "userId" });
+  RefreshToken.belongsTo(User, { foreignKey: "userId" });
 };
 module.exports = defineAssociations;

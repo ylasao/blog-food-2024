@@ -24,7 +24,7 @@ const Rating = sequelize.define(
         model: "User",
         key: "id"
       },
-      onDelete: "CASCADE"
+     
     },
     postId: {
       type: DataTypes.INTEGER,
@@ -32,7 +32,7 @@ const Rating = sequelize.define(
         model: "Post",
         key: "id"
       },
-      onDelete: "CASCADE"
+    
     },
     flag: {
       type: DataTypes.BOOLEAN,

@@ -9,10 +9,6 @@ const User = sequelize.define(
       primaryKey: true,
       autoIncrement: true
     },
-    role: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     username: {
       type: DataTypes.STRING,
       allowNull: false
@@ -38,8 +34,8 @@ const User = sequelize.define(
   },
   {
     tableName: "User",
-    timestamps: true
+    timestamps: false
   }
 );
 
-module.exports = {User , sequelize};
+module.exports = { User, sequelize };

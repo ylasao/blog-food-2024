@@ -37,9 +37,7 @@ async function syncDatabase() {
     console.error("Error synchronizing database:", err);
   }
 }
-
 // call it start synchronized database
-
 syncDatabase();
 
 // catch error 404 and forward to err handle
@@ -58,8 +56,7 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(port, (req, res) => {
+  console.log(`http://localhost:${port}`);
 });
-
 module.exports = app;

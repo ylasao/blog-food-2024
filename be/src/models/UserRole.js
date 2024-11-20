@@ -9,15 +9,15 @@ const UserRole = sequelize.define(
       primaryKey: true,
       autoIncrement: true
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: "User",
         key: "id"
       },
-      onDelete: "CASCADE"
+      
     },
-    role_id: {
+    roleId: {
       type: DataTypes.INTEGER,
       references: {
         model: "Role",
@@ -27,7 +27,7 @@ const UserRole = sequelize.define(
   },
   {
     tableName: "UserRole",
-    timestamps: true
+    timestamps: false
   }
 );
-module.exports = {UserRole , sequelize};
+module.exports = { UserRole, sequelize };

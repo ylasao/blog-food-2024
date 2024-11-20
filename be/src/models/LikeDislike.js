@@ -14,17 +14,17 @@ const LikeDislike = sequelize.define(
       type: DataTypes.INTEGER,
       references: {
         model: "User",
-        key: 'id'
-      },
-      onDelete: "CASCADE" // auto delete  when the user is deleted
+        key: "id"
+      }
+      // auto delete  when the user is deleted
     },
     postId: {
       type: DataTypes.INTEGER,
       references: {
         model: "Post",
-        key: 'id'
-      },
-      onDelete: "CASCADE" // auto delete  when the post  is deleted
+        key: "id"
+      }
+      // auto delete  when the post  is deleted
     },
     isLiked: {
       type: DataTypes.BOOLEAN,
@@ -37,4 +37,4 @@ const LikeDislike = sequelize.define(
   }
 );
 
-module.exports = {LikeDislike , sequelize};
+module.exports = { LikeDislike, sequelize };

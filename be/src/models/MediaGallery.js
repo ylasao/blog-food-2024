@@ -24,8 +24,7 @@ const MediaGallery = sequelize.define(
       references: {
         model: "Post",
         key: "id"
-      },
-      onDelete: "CASCADE"
+      } 
     }
   },
   {

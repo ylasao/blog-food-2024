@@ -65,6 +65,14 @@ const Post = sequelize.define(
       type: DataTypes.INTEGER,
       defaultValue: 0
     },
+    authorId: { // Correct field for the relationship
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Author", // Should match Author's table name
+        key: "id",
+      },
+      allowNull: false,
+    },
   },
   {
     tableName: "Post",

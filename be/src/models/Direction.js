@@ -27,8 +27,7 @@ const Direction = sequelize.define(
       references: {
         model: "Post",
         key: "id"
-      },
-      onDelete: "CASCADE"
+      }  
     }
   },
   { tableName: "Direction", timestamps: true }

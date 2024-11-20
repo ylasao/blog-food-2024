@@ -1,40 +1,32 @@
 const { DataTypes } = require("sequelize");
-
 const sequelize = require("../config/db");
+const { refreshToken } = require("../controller/Auth");
 
-const PostView = sequelize.define(
-  "PostView",
+const RefreshToken = sequelize.define(
+  "RefreshToken",
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    postId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "Post",
-        key: "id"
-      },
-      
+    refreshToken: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     userId: {
       type: DataTypes.INTEGER,
       references: {
         model: "User",
         key: "id"
-      },
-     
+      }
     },
-    viewedAt: {
+    expires_at: {
       type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW
+      allowNull: false
     }
   },
-  {
-    tableName: "PostView",
-    timestamps: true
-  }
+  { tableName: "RefreshToken", timestamps: false }
 );
 
-module.exports = {PostView , sequelize};
+module.exports = { RefreshToken, sequelize };

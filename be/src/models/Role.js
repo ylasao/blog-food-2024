@@ -11,7 +11,8 @@ const Role = sequelize.define(
     },
     name_role: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     flag: {
       type: DataTypes.BOOLEAN,
@@ -20,8 +21,8 @@ const Role = sequelize.define(
   },
   {
     tableName: "Role",
-    timestamps: true
+    timestamps: false
   }
 );
 
-module.exports = {Role , sequelize}
+module.exports = { Role, sequelize };

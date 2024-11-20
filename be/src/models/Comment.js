@@ -23,16 +23,14 @@ const Comment = sequelize.define(
       references: {
         model: "User",
         key: "id"
-      },
-      onDelete: "CASCADE"
+      }
     },
     postId: {
       type: DataTypes.INTEGER,
       references: {
         model: "Post",
         key: "id"
-      },
-      onDelete: "CASCADE"
+      } 
     }
   },
   {

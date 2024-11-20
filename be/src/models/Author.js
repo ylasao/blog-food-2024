@@ -8,14 +8,7 @@ const Author = sequelize.define(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
-    },
-    postId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "Post",
-        key: "id"
-      }
-    },
+    }, 
     flag: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,

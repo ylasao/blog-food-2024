@@ -14,8 +14,7 @@ const Ingredients = sequelize.define(
       references: {
         model: "Post",
         key: "id"
-      },
-      onDelete: "CASCADE"
+      } 
     },
     quantity: {
       type: DataTypes.STRING,
